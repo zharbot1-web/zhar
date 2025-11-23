@@ -1,13 +1,11 @@
-// Fungsi pencarian link
+// Contoh: Fungsi pencarian sederhana
 function searchLinks() {
-    const query = document.getElementById('search-input').value.toLowerCase();
-    const links = document.querySelectorAll('#link-list li');
-    
+    const query = document.getElementById('search').value.toLowerCase();
+    const links = document.querySelectorAll('.list-group-item a');
     links.forEach(link => {
         const text = link.textContent.toLowerCase();
-        link.style.display = text.includes(query) ? 'block' : 'none';
+        link.parentElement.style.display = text.includes(query) ? 'block' : 'none';
     });
 }
 
-// Tambahkan input pencarian di HTML jika ingin
-// Contoh: <input type="text" id="search-input" placeholder="Cari link..." onkeyup="searchLinks()">
+// Tambahkan input pencarian di HTML: <input id="search" onkeyup="searchLinks()" placeholder="Cari link...">
